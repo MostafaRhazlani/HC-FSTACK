@@ -1,6 +1,16 @@
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 const footerLinks = {
+  legal: [
+    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "#" },
+    { name: "Cookie Policy", href: "#" },
+  ],
+  support: [
+    { name: "Contact Us", href: "#" },
+    { name: "FAQ", href: "#" },
+    { name: "Help Center", href: "#" },
+  ],
   products: [
     { name: "Daret - Group Savings", href: "#" },
     { name: "Darna - Real Estate", href: "#" },
@@ -35,6 +45,40 @@ export const Footer: React.FC = () => {
             <h4 className="font-semibold text-lg mb-4">Products</h4>
             <ul className="space-y-2">
               {footerLinks.products.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-slate-400 hover:text-white transition-colors duration-200"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal Links */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4">Legal</h4>
+            <ul className="space-y-2">
+              {footerLinks.legal.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-slate-400 hover:text-white transition-colors duration-200"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Support Links */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4">Support</h4>
+            <ul className="space-y-2">
+              {footerLinks.support.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
