@@ -3,9 +3,18 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     classRec?: string,
 }
 const PrimaryButton: React.FC<ButtonProps> = ({ name, className, classRec, children, ...props }: ButtonProps) => {
+    const baseClasses = "relative px-4 py-1.5 text-white font-medium border-2 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 group min-w-24 overflow-hidden rounded-md";
+    const defaultColors = "bg-slate-900 border-slate-900 hover:text-slate-900"
+
+    const finalClasses = className
+        ? `${baseClasses} ${className}`
+        : `${baseClasses} ${defaultColors}`
     return (
         <>
-            <button { ...props } className={`relative px-4 py-1.5 text-base font-medium bg-slate-900 cursor-pointer text-white border-2 border-slate-900 hover:text-slate-900 shadow-lg hover:shadow-xl transition-all duration-300 group w-full sm:w-auto overflow-hidden rounded-md ${className}`}>
+            <button 
+                { ...props } 
+                className={` ${finalClasses}`}
+            >
                 <span className="relative z-10 flex items-center justify-center">
                     { name }
                     { children }
