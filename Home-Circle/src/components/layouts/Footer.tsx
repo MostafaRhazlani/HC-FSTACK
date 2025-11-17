@@ -1,9 +1,18 @@
+import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+
 const footerLinks = {
   products: [
     { name: "Daret - Group Savings", href: "#" },
     { name: "Darna - Real Estate", href: "#" },
   ],
 };
+
+const socialLinks = [
+  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Linkedin, href: "#", label: "LinkedIn" },
+];
 
 export const Footer: React.FC = () => {
   return (
@@ -46,6 +55,23 @@ export const Footer: React.FC = () => {
             <p className="text-slate-400 text-sm">
               © {new Date().getFullYear()} Home Circle. All rights reserved.
             </p>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-4">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-slate-400 hover:bg-slate-800 hover:text-white transition-colors duration-200"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
