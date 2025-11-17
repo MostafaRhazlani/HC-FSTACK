@@ -78,11 +78,11 @@ const HeroSection = () => {
                             className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                                 }`}
                         >
-                            <PrimaryButton name="Get Started" className="px-6 py-3 w-full">
+                            <PrimaryButton name="Get Started">
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </PrimaryButton>
 
-                            <SecondaryButton name="Learn More" className="px-6 py-3 w-full" />
+                            <SecondaryButton name="Learn More" />
                         </div>
 
                         {/* Stats or Trust Indicators */}
