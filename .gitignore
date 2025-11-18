@@ -8,9 +8,13 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+mongo_data
+postgres_data
 dist
 dist-ssr
 *.local
+.dockerignore
+.env
 
 # Editor directories and files
 .vscode/*
