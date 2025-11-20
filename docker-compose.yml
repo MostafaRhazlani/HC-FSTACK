@@ -53,6 +53,9 @@ services:
       - "3000:3000"
     environment:
       - KC_APP_URL=http://localhost:8080
+    volumes:
+      - ./HC-FRONT/Home-Circle:/app
+      - /app/node_modules
     networks:
       - HCNetwork
 
@@ -68,6 +71,9 @@ services:
     environment:
       - MONGO_URL=mongodb://mongo:27017/daret_db
       - KC_URL=http://keycloak:8080
+    volumes:
+      - ./HC-BACK/Daret:/app
+      - /app/node_modules
     networks:
       - HCNetwork
 
@@ -79,6 +85,9 @@ services:
     environment:
       - DARET_APP_API_URL=http://localhost:4001
       - KC_APP_URL=http://localhost:8080
+    volumes:
+      - ./HC-FRONT/Daret:/app
+      - /app/node_modules
     depends_on:
       - daret-back
     networks:
@@ -96,6 +105,9 @@ services:
     environment:
       - MONGO_URL=mongodb://mongo:27017/darna_db
       - KC_URL=http://keycloak:8080
+    volumes:
+      - ./HC-BACK/Darna:/app
+      - /app/node_modules
     networks:
       - HCNetwork
 
@@ -107,6 +119,9 @@ services:
     environment:
       - DARNA_APP_API_URL=http://localhost:4002
       - KC_APP_URL=http://localhost:8080
+    volumes:
+      - ./HC-FRONT/Darna:/app
+      - /app/node_modules
     depends_on:
       - darna-back
     networks:
