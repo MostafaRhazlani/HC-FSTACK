@@ -1,15 +1,26 @@
 import { ArrowRight } from "lucide-react";
 import PrimaryButton from "./PrimaryButton";
-
+import { client } from "../../hooks/useAuth";
 interface ProductCardProps {
     logo: string;
     title: string;
     description: string;
     ctaText: string;
     accentColor: "indigo" | "teal";
+    targetUri: string;
 }
 
-const ProductCard = ({ logo: Logo, title, description, ctaText, accentColor }: ProductCardProps) => {
+const ProductCard = ({ logo: Logo, title, description, ctaText, accentColor, targetUri }: ProductCardProps) => {
+
+    const handleRedirect = () => {
+        if(client.authenticated) {
+            window.location.href = targetUri;
+        } else {
+            client.login({
+                redirectUri: targetUri
+            })
+        }
+    }
 
     const isIndigo = accentColor === "indigo";
     const iconBgClass = isIndigo ? "bg-indigo-100" : "bg-teal-100";
@@ -38,18 +49,9 @@ const ProductCard = ({ logo: Logo, title, description, ctaText, accentColor }: P
                     </p>
 
                     {/* CTA Button */}
-                    <PrimaryButton className={buttonClass} classRec={btnClassAnimate} name={ctaText} >
+                    <PrimaryButton onClick={handleRedirect} className={buttonClass} classRec={btnClassAnimate} name={ctaText} >
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </PrimaryButton>
-                    {/* <button
-                        className={`inline-flex items-center justify-center group relative overflow-hidden cursor-pointer px-6 py-3 text-sm font-medium rounded-lg transition-all duration-300 w-full sm:w-auto ${buttonClass}`}
-                    >
-                        <div className="relative z-10 flex items-center justify-center">
-                            {ctaText}
-                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                        <div className={`absolute inset-0 translate-x-full group-hover:translate-x-0 transition-transform duration-300 ${btnClassAnimate}`}></div>
-                    </button> */}
                 </div>
             </div>
         </div>

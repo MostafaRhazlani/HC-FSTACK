@@ -24,6 +24,7 @@ const Products = () => {
             description="Join trusted circles for group savings. Track contributions, manage payouts, and build financial security with your community through our transparent tontine system."
             ctaText="Go to Daret"
             accentColor="indigo"
+            targetUri="http://localhost:3001/"
           />
           <ProductCard
             logo="/src/assets/logos/darna-logo.png"
@@ -31,6 +32,7 @@ const Products = () => {
             description="Browse verified property listings, access investment tools, and secure financing options. Turn your savings into real estate opportunities with confidence."
             ctaText="Go to Darna"
             accentColor="teal"
+            targetUri="http://localhost:3002/"
           />
         </div>
       </div>
